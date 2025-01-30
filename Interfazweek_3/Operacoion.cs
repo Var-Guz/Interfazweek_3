@@ -1,29 +1,59 @@
 ﻿
+using System;
+
 namespace Interfazweek_3
 {
     public class Operacoion : IOperacion, IArea
     {
-        public double N1 { get; set; };
-        public double N2 { get; set; };
+        public double N1 { get; set; }
+        public double N2 { get; set; }
 
-        double IOperacion.Division()
+        public double Cuadrado()
         {
-            throw new NotImplementedException();
+            return N1 * N2;
+
         }
 
-        double IOperacion.Multiplicacion()
+        public double Division()
         {
-            throw new NotImplementedException();
+            if (N1 == 0) { 
+                    Console.WriteLine("no se puede dividir entre cero");
+                return 0;       
+            }
+            return N1 / N2;
+        } 
+
+        public double Multiplicacion()
+        {
+            return N1 * N2;
         }
 
-        double IOperacion.Resta()
+        public double Resta()
         {
-            throw new NotImplementedException();
+            return N1 - N2;
         }
 
-        double IOperacion.Suma()
+        public double Suma()
         {
-            throw new NotImplementedException();
+            return N1 + N2;
         }
+
+        public double Triangulo()
+        {
+            return (N1 * N2) / 2;
+
+        }
+        public void Imprimir()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"SUMA: {Suma()}");
+            Console.WriteLine($"RESTA: {Resta()}");
+            Console.WriteLine($"MULTIPLICACION: {Multiplicacion()}");
+            Console.WriteLine($"DIVISION: {Division()}");
+            Console.WriteLine($"Area del cuadrado: {Cuadrado()} cm2");
+            Console.WriteLine($"Area del triangulo: {Triangulo()} cm2");
+        }
+        
     }
+
 }
